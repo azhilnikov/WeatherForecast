@@ -74,7 +74,7 @@ struct WeatherForecastAPI {
             // Convert numbers into strings
             guard
                 let stringTemperature = numberFormatter.stringFromNumber(temperature),
-                let stringHumidity = numberFormatter.stringFromNumber(humidity),
+                let stringHumidity = numberFormatter.stringFromNumber(humidity * 100),
                 let stringPressure = numberFormatter.stringFromNumber(pressure) else {
                     // JSON data is wrong
                     return .Failure(WeatherServerError.InvalidJSONData)

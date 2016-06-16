@@ -37,15 +37,14 @@ class ViewController: UIViewController {
             switch result {
             // Successfully received weather forecast
             case let .Success(weatherData):
-                self.summaryLabel.text = "Summary: " + weatherData.summary
-                self.humidityLabel.text = "Humidity: " + weatherData.humidity
-                self.pressureLabel.text = "Pressure: " + weatherData.pressure
-                self.temperatureLabel.text = "Temperature: " + weatherData.temperature
+                self.summaryLabel.text = weatherData.summary
+                self.humidityLabel.text = weatherData.humidity + "%"
+                self.pressureLabel.text = weatherData.pressure + "Pa"
+                self.temperatureLabel.text = weatherData.temperature + "°C"
                 self.errorLabel.hidden = true
                 
             // Something was wrong
             case let .Failure(error):
-                //print("\(error)")
                 self.errorLabel.text = "\(error)"
                 self.errorLabel.hidden = false
             }
